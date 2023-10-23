@@ -2,7 +2,7 @@ import { AddVisitor } from "@/components/AddVisitor"
 
 
 async function getVisitorData() {
-  const res = await fetch("http://localhost:3000/api/visitor")
+  const res = await fetch("https://library-visitor.vercel.app/api/visitor")
   return res.json()
 }
 
