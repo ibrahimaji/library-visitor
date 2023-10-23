@@ -8,7 +8,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 const inter = Poppins({ subsets: ['latin'], weight: ["300", "500", "700"] })
 
 export const metadata = {
-  title: 'Library Counter UPT SDN Wirogunan',
+  title: 'Library Visitor Counter UPT SDN Wirogunan',
   description: 'Library Visitor Counter UPT SDN Wirogunan',
 }
 
