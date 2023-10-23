@@ -4,12 +4,14 @@ import { AddVisitor } from "@/components/AddVisitor"
 async function getVisitorData() {
   const res = await fetch("https://library-visitor.vercel.app/api/visitor",
     { cache: 'no-store' })
-  const visitors = await res.json();
-  return visitors;
+  // const visitors = await res.json();
+  //return visitors;
+  return res.json();
 }
 
 export default async function Home() {
-  const { data: visitors } = await getVisitorData();
+  //  const { data: visitors } = await getVisitorData();
+  const [visitors] = await Promise.all([getVisitorData()]);
 
   return (
     <div className="p-4 w-full flex flex-col md:flex-row items-start max-w-7xl mx-auto md:space-x-8">
