@@ -14,6 +14,6 @@ model Visitor {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   nama      String
   kelas     String
-  keperluan String
+  keperluan String?
   date      DateTime @default(now())
 }
