@@ -13,7 +13,7 @@ export default async function Home() {
     <div className="p-4 w-full flex flex-col md:flex-row items-start max-w-7xl mx-auto md:space-x-8">
       <div className="flex flex-col items-center space-y-4 w-full md:w-[70%]">
         <AddVisitor />
-        Jumlah Pengunjung {visitors.length}
+        Jumlah Pengunjung Perpustakaan {visitors.length}
       </div>
       <div className="hidden w-[30%] md:flex flex-col space-y-8">
         <div className="w-full">
