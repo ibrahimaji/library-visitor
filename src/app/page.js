@@ -7,7 +7,7 @@ async function getVisitorData() {
 }
 
 export default async function Home() {
-  const [visitors] = await Promise.all([getVisitorData()])
+  const visitors = await Promise.all([getVisitorData()])
 
   return (
     <div className="p-4 w-full flex flex-col md:flex-row items-start max-w-7xl mx-auto md:space-x-8">
