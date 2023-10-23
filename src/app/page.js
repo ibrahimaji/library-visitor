@@ -2,13 +2,14 @@ import { AddVisitor } from "@/components/AddVisitor"
 
 
 async function getVisitorData() {
-  const res = await fetch("https://library-visitor.vercel.app/api/visitor")
-  return res.json()
+  const res = await fetch("https://library-visitor.vercel.app/api/visitor",
+    { cache: 'no-store' })
+  const visitors = await res.json();
+  return visitors;
 }
 
 export default async function Home() {
-  const [visitors] = await Promise.all([getVisitorData()])
-  const modifiedVisitors = visitors.reverse();
+  const { data: visitors } = await getVisitorData();
 
   return (
     <div className="p-4 w-full flex flex-col md:flex-row items-start max-w-7xl mx-auto md:space-x-8">
@@ -20,7 +21,7 @@ export default async function Home() {
         <div className="w-full">
           <h1 className="text-2xl font-bold text-green-500 my-2">Pengunjung Terakhir</h1>
           <div className="flex flex-col space-y-3">
-            {modifiedVisitors.slice(0, 6).map((visitor, index) => (
+            {visitors.slice(0, 6).map((visitor, index) => (
               <div key={index} className="bg-green-100 rounded-2xl p-3">
                 <h3 className="text-green-600 font-bold text-sm">{visitor.nama} - {visitor.kelas}</h3>
               </div>
