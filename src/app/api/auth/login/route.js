@@ -40,6 +40,6 @@ export async function POST(req) {
     return res;
   } catch (err) {
     console.log(err);
-    return NextResponse.json(err, { status: err.status });
+    return NextResponse.json({err:err.message}, { status: 500 });
   }
 }
