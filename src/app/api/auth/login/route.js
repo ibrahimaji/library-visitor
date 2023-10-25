@@ -11,12 +11,6 @@ export async function POST(req) {
         email,
       },
     });
-    // if (findUser) {
-    //   const isPasswordMatches = await compare(password, findUser.password);
-    //   if (isPasswordMatches)
-    //     return NextResponse.json({ data: findUser }, { status: 200 });
-    //   return NextResponse.json({ error: "Password salah!" }, { status: 401 });
-    // }
     if (!findUser) {
       return NextResponse.json({ error: "User not found" }, { status: 400 });
     }
@@ -40,6 +34,6 @@ export async function POST(req) {
     return res;
   } catch (err) {
     console.log(err);
-    return NextResponse.json({err:err.message}, { status: 500 });
+    return NextResponse.json({err}, { status: err.status });
   }
 }
