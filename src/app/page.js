@@ -2,15 +2,29 @@ import { AddVisitor } from "@/components/AddVisitor"
 
 
 async function getVisitorData() {
-  const res = await fetch("https://library-visitor.vercel.app/api/visitor",
+  const res = await fetch("https:library-visitor.vercel.app/api/visitor",
     { cache: 'no-store' })
-  // const visitors = await res.json();
-  //return visitors;
   return res.json();
 }
 
+// async function getVisitorData() {
+//   try {
+//     const res = await fetch("https://library-visitor.vercel.app/api/visitor",
+//       { cache: 'no-store' })
+//     if (!res.ok) {
+//       throw new Error(`HTTP error! Status:${res.status}`)
+//     }
+//     const data = await res.json();
+//     if (typeof data === 'object') {
+//       return data;
+//     } else {
+//       throw new Error('Response is not valid JSON');
+//     }
+//   } catch (error) {
+//     console.error("Fetch error:", error);
+//   }
+// }
 export default async function Home() {
-  //  const { data: visitors } = await getVisitorData();
   const [visitors] = await Promise.all([getVisitorData()]);
 
   return (
