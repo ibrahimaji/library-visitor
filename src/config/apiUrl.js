@@ -1,4 +1,5 @@
+const API_VER = "v1";
 export const API_URL =
   process.env.NODE_ENV === "development"
-    ? `${process.env.API_URL_LOCAL}/api`
-    : `${process.env.API_URL_PROD}/api`;
+    ? `${process.env.DEV_API_URL}/${API_VER}`
+    : `${process.env.PROD_API_URL}/${API_VER}`;

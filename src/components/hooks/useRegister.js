@@ -26,7 +26,7 @@ export const useRegister = () => {
       return;
     }
     try {
-      const res = await fetch("/api/auth/register", {
+      const res = await fetch(`/api/v1/auth/register`, {
         method: "POST",
         body: JSON.stringify({
           name,
