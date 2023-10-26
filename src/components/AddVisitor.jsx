@@ -11,7 +11,11 @@ export const AddVisitor = () => {
   const router = useRouter()
   const handleAdd = async () => {
     try {
-      const res = await axios.post("https://library-visitor.vercel.app/api/visitor", { nama, kelas, keperluan })
+      // const res = await axios.post("https://library-visitor.vercel.app/api/visitor", { nama, kelas, keperluan })
+      const res = await fetch(`/api/v1/visitor`,{
+        method:"POST",
+        body:JSON.stringify({nama, kelas, keperluan})
+      });
       console.log(res.data)
       toast.success('Pengunjung berhasil ditambahkan');
       router.push("/")

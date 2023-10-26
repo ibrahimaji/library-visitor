@@ -3,6 +3,7 @@ import '@/styles/globals.css'
 import { Footer } from '@/components/Footer'
 import { Navbar } from '@/components/Navbar'
 import Provider from '@/providers/Provider'
+import { ClerkProvider } from '@clerk/nextjs'
 
 const inter = Poppins({ subsets: ['latin'], weight: ["300", "500", "700"] })
 
@@ -13,6 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body className={inter.className}>
         <Provider>
@@ -22,5 +24,6 @@ export default function RootLayout({ children }) {
         </Provider>
       </body>
     </html>
+    </ClerkProvider>
   )
 }
